@@ -1,0 +1,9 @@
+[submodule "bts"]
+	path = bts
+	url = https://github.com/jeoseo/bts.git
+[submodule "LapDepth"]
+	path = LapDepth
+	url = https://github.com/jeoseo/LapDepth-release
+[submodule "GLPDepth"]
+	path = GLPDepth
+	url = https://github.com/jeoseo/GLPDepth
