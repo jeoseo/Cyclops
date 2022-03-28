@@ -8,7 +8,9 @@ import os
 def main():
     #run on GLP
     glp_runstring="python ./GLPDepth/code/train.py --dataset nyudepthv2 --data_path ./GLPDepth/datasets/ --batch_size 12 --max_depth 10.0 --max_depth_eval 10.0  --gpu_or_cpu cpu --save_result --save_model"
-    os.system(glp_runstring)
+    os.system(glp_runstring+"--log_dir ./GLP_log_0")
+
+
 
 if __name__ == '__main__':
     main()
