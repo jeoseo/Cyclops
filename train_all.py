@@ -18,7 +18,7 @@ def GLP():
     print(runtime)
 
     #run for 6 hours
-    hours=3
+    hours=6
     train_subset_size=int(100*hours*3600*2/25/runtime)
     train_str=str(train_subset_size)+"_100"
     os.system("python ./GLPDepth/code/dataset/filenames/nyudepthv2/train_test_set_generator.py "+str(train_subset_size)+" 100")
@@ -36,15 +36,15 @@ def BTS():
     #time on 100_1 examples, extrapolate rate out to 6 hours
     os.system("python ./GLPDepth/code/dataset/filenames/nyudepthv2/train_test_set_generator.py 100 1")
     bts_runstring="python ./GLPDepth/code/train_bts.py --dataset nyudepthv2 --data_path ./datasets/nyu_depth_v2 --batch_size 12 --workers 1 --max_depth 10.0 --max_depth_eval 10.0  --gpu_or_cpu gpu"
-    with os.popen(bts_runstring+" --epochs 2 --log_dir ./logs/bts_100_1 --filenames_path ./GLPDepth/code/dataset/filenames/nyudepthv2/10_1") as f:
+    with os.popen(bts_runstring+" --epochs 2 --log_dir ./logs/bts_100_1 --filenames_path ./GLPDepth/code/dataset/filenames/nyudepthv2/100_1") as f:
         last_line = f.readlines()[-1]
     runtime=float(last_line)
     print(runtime)
 
     #run for 6 hours, with 100 examples for validation
-    hours=3
+    hours=6
     train_subset_size=int(100*hours*3600*2/25/runtime)
-    train_str=str(train_subset_size)+"_1"
+    train_str=str(train_subset_size)+"_100"
     os.system("python ./GLPDepth/code/dataset/filenames/nyudepthv2/train_test_set_generator.py "+str(train_subset_size)+" 100")
     os.system(bts_runstring+" --save_model --log_dir ./logs/bts_"+train_str+" --filenames_path ./GLPDepth/code/dataset/filenames/nyudepthv2/"+train_str)
 
@@ -57,7 +57,7 @@ def LAP():
     return
 def main():
     
-    #GLP()
+    GLP()
     BTS()
 
     #lapdepth 
