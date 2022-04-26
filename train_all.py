@@ -25,7 +25,7 @@ def GLP():
     os.system(glp_runstring+" --save_last_model --log_dir ./logs/GLP_"+train_str+" --filenames_path ./GLPDepth/code/dataset/filenames/nyudepthv2/"+train_str)
 
     #inference and evaluate
-    glp_teststring="python ./GLPDepth/code/test.py --dataset nyudepthv2 --data_path ./datasets/nyu_depth_v2 --save_visualize --save_eval_pngs --do_evaluate --max_depth 10.0 --max_depth_eval 10.0 --gpu_or_cpu gpu"
+    glp_teststring="python ./GLPDepth/code/test.py --dataset sunrgbd --data_path ./datasets/SUN_RGBD/ --save_visualize --save_eval_pngs --do_evaluate --max_depth 10.0 --max_depth_eval 10.0 --gpu_or_cpu gpu"
     os.system(glp_teststring+" --result_dir ./logs/GLP_"+train_str+"/results --filenames_path ./GLPDepth/code/dataset/filenames/SUN_RGBD --ckpt_dir ./logs/GLP_"+train_str+"/epoch_25_model.ckpt")
 
 
@@ -49,7 +49,7 @@ def BTS():
     os.system(bts_runstring+" --save_last_model --log_dir ./logs/bts_"+train_str+" --filenames_path ./GLPDepth/code/dataset/filenames/nyudepthv2/"+train_str)
 
     #inference and evaluate
-    bts_teststring="python ./GLPDepth/code/test_bts.py --dataset nyudepthv2 --data_path ./datasets/nyu_depth_v2 --save_visualize  --save_eval_pngs --do_evaluate --max_depth 10.0 --max_depth_eval 10.0 --gpu_or_cpu gpu"
+    bts_teststring="python ./GLPDepth/code/test_bts.py --dataset sunrgbd --data_path ./datasets/SUN_RGBD/ --save_visualize --save_eval_pngs --do_evaluate --max_depth 10.0 --max_depth_eval 10.0 --gpu_or_cpu gpu"
     os.system(bts_teststring+" --result_dir ./logs/bts_"+train_str+"/results --filenames_path ./GLPDepth/code/dataset/filenames/SUN_RGBD --ckpt_dir ./logs/bts_"+train_str+"/epoch_25_model.ckpt")    
 
 
@@ -73,7 +73,7 @@ def LAP():
     os.system(lap_runstring+" --save_last_model --log_dir ./logs/lap_"+train_str+" --filenames_path ./GLPDepth/code/dataset/filenames/nyudepthv2/"+train_str)
 
     #inference and evaluate
-    lap_teststring="python ./GLPDepth/code/test_lap.py --dataset nyudepthv2 --data_path ./datasets/nyu_depth_v2 --save_visualize  --save_eval_pngs --do_evaluate --max_depth 10.0 --max_depth_eval 10.0 --gpu_or_cpu gpu"
+    lap_teststring="python ./GLPDepth/code/test_lap.py --dataset sunrgbd --data_path ./datasets/SUN_RGBD/ --save_visualize --save_eval_pngs --do_evaluate --max_depth 10.0 --max_depth_eval 10.0 --gpu_or_cpu gpu"
     os.system(lap_teststring+" --result_dir ./logs/lap_"+train_str+"/results --filenames_path ./GLPDepth/code/dataset/filenames/SUN_RGBD --ckpt_dir ./logs/lap_"+train_str+"/epoch_25_model.ckpt")    
 
 
@@ -81,7 +81,7 @@ def LAP():
 def main():
     
     GLP()
-    BTS()
+    #BTS()
     LAP()
 
 if __name__ == '__main__':
