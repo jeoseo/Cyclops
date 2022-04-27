@@ -80,7 +80,7 @@ def LAP():
 
 def main():
     
-    GLP()
+    #GLP()
     #BTS()
     LAP()
 
